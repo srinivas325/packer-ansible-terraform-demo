@@ -5,6 +5,6 @@
 
   roles:
     - git
-    - mysql
+    #- mysql
     - nginx
     - growlerfriday
