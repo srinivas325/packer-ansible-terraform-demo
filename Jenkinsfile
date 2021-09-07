@@ -18,7 +18,7 @@ pipeline {
                     sh "ls -l; pwd;sudo unzip -f bin_terraform.zip"
                     sh "sudo mv terraform /usr/bin"
             
-                    sh "sudo terraform version"
+                    sh "terraform --version"
               }
           }
           stage('Install Packer') {
@@ -29,7 +29,7 @@ pipeline {
                     sh "unzip bin_packer.zip"
                     sh "sudo mv packer /usr/bin"
                     //sh "rm -rf bin_packer.zip"
-                    sh "packer version"
+                    sh "packer --version"
               }
           }
           stage('code checkout') {
