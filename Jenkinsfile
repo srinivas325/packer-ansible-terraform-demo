@@ -22,15 +22,7 @@ pipeline {
                     }
                 }
           }
-          stage('Deploy??') {
-                steps {
-                    script {
-                       timeout(time: 2, unit: 'MINUTES') {
-                          input(id: "Deploy Gate", message: "Want to Deploy ${params.project_name}?", ok: 'Deploy??')
-                       }
-                    }
-                }
-          }
+       
          
          }
 }
