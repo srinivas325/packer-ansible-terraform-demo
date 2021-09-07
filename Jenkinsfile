@@ -5,8 +5,8 @@ pipeline {
     }
     environment {
        
-        access_key = 'AKIAYDQVWQBEKB7JJX26'
-        secret_key = '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'
+        access_key = 'acces_key'
+        secret_key = 'secret_key'
     }
     stages {
           stage('code checkout') {
