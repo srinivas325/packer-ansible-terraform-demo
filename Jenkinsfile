@@ -10,17 +10,7 @@ pipeline {
         secret_key = 'input_your_secret_key'
     }
     stages {
-          stage('Install Terraform') {
-              steps {
-                    sh "sudo yum install wget zip -y"
-                    sh "sudo cd /tmp"
-                    sh "sudo curl -o bin_terraform.zip https://releases.hashicorp.com/terraform/'$terraform_version'/terraform_'$terraform_version'_linux_amd64.zip"
-                    sh "ls -l; pwd;sudo unzip -f bin_terraform.zip"
-                    //sh "sudo mv terraform /usr/bin"
-            
-                    sh "terraform --version"
-              }
-          }
+  
           stage('Install Packer') {
               steps {
                     sh "sudo yum install wget zip -y"
@@ -53,17 +43,7 @@ pipeline {
                     }
                 }
           }
-         stage('Terraform Deploy'){
-             steps {
-                 dir('./terraform'){
-
-                 sh  """
-                     terraform init; terraform plan; terraform apply -auto-approve -var 'access_key=$access_key' -var 'secret_key=$secret_key'
-                     """
-
-                 }
-
-             }
+         
          }
     }
 }
