@@ -17,7 +17,7 @@ pipeline {
           stage('Build AMI') {
                 steps {
                     dir('./packer'){
-                     sh 'ls -la; pwd; packer build template.json'
+                     sh 'ls -la; pwd; AWS_PROFILE=dev packer build template.json'
                     }
                 }
           }
