@@ -5,12 +5,7 @@ pipeline {
     }
     environment {
        
-        withCredentials([[
-    $class: 'AmazonWebServicesCredentialsBinding',
-    credentialsId: "189e221c-239c-4e34-94b3-e846187366bf",
-    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-]]) 
+        
     }
     stages {
           stage('code checkout') {
@@ -20,13 +15,19 @@ pipeline {
           }
           stage('Build AMI') {
                 steps {
-                    
+                    script {
+                    withCredentials([[
+    $class: 'AmazonWebServicesCredentialsBinding',
+    credentialsId: "189e221c-239c-4e34-94b3-e846187366bf",
+    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+]]) 
                     dir('./packer'){
                      sh 'ls -la; pwd; AWS_PROFILE=dev packer build template.json'
                     }
                 }
           }
-       
+          }
          
          }
 }
