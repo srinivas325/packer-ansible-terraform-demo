@@ -3,10 +3,7 @@ pipeline {
     parameters {
         string(name: 'project_name', defaultValue: 'Packer Pipeline', description: 'Jenkins Pipeline for terraform?')
     }
-    environment {
-       
-        
-    }
+ 
     stages {
           stage('code checkout') {
                steps {
