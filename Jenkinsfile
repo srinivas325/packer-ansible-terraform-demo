@@ -16,7 +16,7 @@ pipeline {
                     sh "sudo cd /tmp"
                     sh "sudo curl -o bin_terraform.zip https://releases.hashicorp.com/terraform/'$terraform_version'/terraform_'$terraform_version'_linux_amd64.zip"
                     sh "ls -l; pwd;sudo unzip -f bin_terraform.zip"
-                    sh "sudo mv terraform /usr/bin"
+                    //sh "sudo mv terraform /usr/bin"
             
                     sh "terraform --version"
               }
