@@ -4,10 +4,9 @@ pipeline {
         string(name: 'project_name', defaultValue: 'Packer Pipeline', description: 'Jenkins Pipeline for terraform?')
     }
     environment {
-        terraform_version = '0.11.11'
-        packer_version = '1.4.3'
-        access_key = 'input_your_access_key'
-        secret_key = 'input_your_secret_key'
+       
+        access_key = 'AKIAYDQVWQBEKB7JJX26'
+        secret_key = '2YgxSBkaFt7LS7B3287wTLw7jmIMFB0RPfZqf+Ys'
     }
     stages {
           stage('code checkout') {
