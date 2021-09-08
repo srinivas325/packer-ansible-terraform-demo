@@ -10,11 +10,11 @@ pipeline {
    
   }
     stages {
-          stage('code checkout') {
-               steps {
-                    git branch: 'feature/packer-ansible', url: 'https://github.com/srinivas325/packer-ansible-terraform-demo.git'
-                    }
-          }
+         // stage('code checkout') {
+         //      steps {
+         //           git branch: 'feature/packer-ansible', url: 'https://github.com/srinivas325/packer-ansible-terraform-demo.git'
+         //           }
+         // }
           stage('Build AMI') {
                 steps {
                   
@@ -24,6 +24,13 @@ pipeline {
                 }
           }
           }
-         
          }
-
+post {
+    success {
+        echo "success"
+    }
+    failure {
+        echo "failed"
+    }
+  }
+}
