@@ -16,7 +16,7 @@ variable "vpc_cidr" {
 
 variable "subnet_cidr" {
     description = "Subnet CIDR blocks"
-    type = "list"
+    type = list(string)
     default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/24"]
 }
 
@@ -38,11 +38,11 @@ variable "ssh_key" {
 variable "sg_source" {
     default = ["0.0.0.0/0"]
     description = "source cidr for sg"
-    type = "list"
+    type = list(string)
 }
 
 variable "port_number" {
   description = "Remote tcp port to be used for access to the vms created via the nsg applied to the nics."
   default = ["22","3000","9090","9093","8080","80"]
-  type = "list"
+  type = list(string)
 }
